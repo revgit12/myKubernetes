@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hw-dep
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hw
+    spec:
+      containers:
+        - name: k8s-demo
+          image: wardviaene/k8s-demo
+          ports:
+            - name: nodejs-port
+              containerPort: 3000
+      nodeSelector:
+        hardware: high-spec
+
+
+
+
+
+...
